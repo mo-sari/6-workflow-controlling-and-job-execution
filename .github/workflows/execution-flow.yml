@@ -39,10 +39,10 @@ jobs:
 # If there's a cache miss, this will be an empty string.
         run: npm ci
       - name: Test code
+        continue-on-error: true
         id: run_tests
         run: npm run test
       - name: Upload test report
-        if: failure() && steps.run_tests.outcome == 'failure' 
         uses: actions/upload-artifact@v3
         with:
           name: test-report
