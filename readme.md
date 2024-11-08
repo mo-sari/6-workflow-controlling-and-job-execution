@@ -5,3 +5,5 @@ Conditional functions:
 - cancelled() ==> true if the workflow has been cancelled
 
 When a continue-on-error step fails, the outcome is failure, but the final conclusion is success.
+
+we could just write the name of our artifact inside the reusable workflow, but that is not a reusable workflow anymore if we do so, so we have to provide it with inputs

@@ -72,7 +72,9 @@ jobs:
           path: dist
   deploy:
     needs: build
-    uses: ./.github/workflows/reusable-workflow.yaml
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      artifact-name: dist-files
   report:
     if: failure()
     runs-on: windows-latest

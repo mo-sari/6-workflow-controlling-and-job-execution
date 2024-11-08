@@ -1,0 +1,21 @@
+name: reusable-workflow
+on: 
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: the name of the deployable artifact files
+        required: false
+        default: dist
+        type: string
+jobs:
+  first-job:
+    runs-on: windows-latest
+    steps:
+      - name: get artifact code
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{inputs.artifact-name}}
+      - name: list files
+        run: ls
+      - name: output information
+        run: echo 'deploying the website'
