@@ -9,9 +9,16 @@ on:
         type: string
     secrets:
       some-secret:
-        required: true
+        required: false
+    outputs:
+      result:
+        description: the result of the deployment operation
+        value: ${{jobs.first-job.outputs.outcome}}
+        
 jobs:
   first-job:
+    outputs:
+      outcome: ${{steps.print-output.outputs.step-result}}
     runs-on: windows-latest
     steps:
       - name: get artifact code
@@ -22,3 +29,6 @@ jobs:
         run: ls
       - name: output information
         run: echo 'deploying the website'
+      - name: output the result
+        id: print-output
+        run: echo '::set-output name=step-result::success'
