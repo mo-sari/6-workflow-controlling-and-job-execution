@@ -7,6 +7,9 @@ on:
         required: false
         default: dist
         type: string
+    secrets:
+      some-secret:
+        required: true
 jobs:
   first-job:
     runs-on: windows-latest

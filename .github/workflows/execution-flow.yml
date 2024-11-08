@@ -75,6 +75,9 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       artifact-name: dist-files
+    # and this below is how to provide secrets
+    # secrets: 
+    #   some-secret: ${{secrets.some-secret}}
   report:
     if: failure()
     runs-on: windows-latest
