@@ -1,0 +1,8 @@
+name: reusable-workflow
+on: workflow_call
+jobs:
+  first-job:
+    runs-on: windows-latest
+    steps:
+      - name: output information
+        run: echo 'deploying the website'
